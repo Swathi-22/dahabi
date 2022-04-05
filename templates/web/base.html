@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" itemscope>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dahabi</title>
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'web/vendors/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="{% static 'web/vendors/font-awesome/css/font-awesome.min.css' %}">
+    <!-- HTML5 Shim and Respond.js' %} IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js' %} doesn't work if you view the page via file://-->
+    <!-- IE 9-->
+    <!-- Vendors-->
+    <link rel="stylesheet" href="{% static 'web/vendors/flexslider/flexslider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/swipebox/css/swipebox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/slick/slick.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/slick/slick-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/vendors/pageloading/css/component.min.css' %}">
+    <!-- Font-icon-->
+    <link rel="stylesheet" href="{% static 'web/fonts/font-icon/style.css' %}">
+    <!-- Style-->
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/elements.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/extra.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/widget.css' %}">
+    <!--link#colorpattern(rel='stylesheet', type='text/css', href='{% static 'web/css/color/colordefault.css' %}')-->
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/responsive.css' %}">
+    <!-- Google Font-->
+    <link href="{% static 'web/css/css833b.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/cssb31e.css' %}" rel="stylesheet">
+    <!-- Script Loading Page-->
+    <script src="{% static 'web/vendors/html5shiv.js' %}"></script>
+    <script src="{% static 'web/vendors/respond.min.js' %}"></script>
+    <script src="{% static 'web/vendors/pageloading/js/snap.svg-min.js' %}"></script>
+    <script src="{% static 'web/vendors/pageloading/sidebartransition/js/modernizr.custom.js' %}"></script>
+  </head>
+  <body>
+
+
+    {% include 'web/partials/header.html' %}
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'web/partials/footer.html' %}
+
+
+
+       <!-- jQuery-->
+       <script src="{% static 'web/vendors/jquery-1.10.2.min.js' %}"></script>
+       <!-- Bootstrap JavaScript-->
+       <script src="{% static 'web/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+       <!-- Vendors-->
+       
+       <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+      <script src="{% static 'web/js/cart.js' %}"></script>
+       <script src="{% static 'web/vendors/flexslider/jquery.flexslider-min.js' %}"></script>
+       <script src="{% static 'web/vendors/swipebox/js/jquery.swipebox.min.js' %}"></script>
+       <script src="{% static 'web/vendors/slick/slick.min.js' %}"></script>
+       <script src="{% static 'web/vendors/isotope/isotope.pkgd.min.js' %}"></script>
+       <script src="{% static 'web/vendors/jquery-countTo/jquery.countTo.min.js' %}"></script>
+       <script src="{% static 'web/vendors/jquery-appear/jquery.appear.min.js' %}"></script>
+       <script src="{% static 'web/vendors/parallax/parallax.min.js' %}"></script>
+       <script src="{% static 'web/vendors/gmaps/gmaps.min.js' %}"></script>
+       <script src="{% static 'web/vendors/audiojs/audio.min.js' %}"></script>
+       <script src="{% static 'web/vendors/vide/jquery.vide.min.js' %}"></script>
+       <script src="{% static 'web/vendors/pageloading/js/svgLoader.min.js' %}"></script>
+       <script src="{% static 'web/vendors/pageloading/js/classie.min.js' %}"></script>
+       <script src="{% static 'web/vendors/pageloading/sidebartransition/js/sidebarEffects.min.js' %}"></script>
+       <script src="{% static 'web/vendors/nicescroll/jquery.nicescroll.min.js' %}"></script>
+       <script src="{% static 'web/vendors/wowjs/wow.min.js' %}"></script>
+       <script src="{% static 'web/vendors/skrollr.min.js' %}"></script>
+       <script src="{% static 'web/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+       <script src="{% static 'web/js/jquery.easing.min.js' %}" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+       <!-- Own script-->
+       <script src="{% static 'web/js/layout.js' %}"></script>
+       <script src="{% static 'web/js/elements.js' %}"></script>
+       <script src="{% static 'web/js/widget.js' %}"></script>
+       {% block javascript %}
+    {% endblock %}
+     </body>
+   </html>

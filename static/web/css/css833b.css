@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/merriweathersans/v20/2-cM9IRs1JiJN1FRAMjTN5zd9vgsFHXwWDvLBsPDdpWMaq0qytsFxxA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/merriweathersans/v20/2-cO9IRs1JiJN1FRAMjTN5zd9vgsFF_5asQTb6hZ2JKZou4ViesC.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/merriweathersans/v20/2-cO9IRs1JiJN1FRAMjTN5zd9vgsFF_5asQTb6hZ2JKZRekViesC.ttf) format('truetype');
+}

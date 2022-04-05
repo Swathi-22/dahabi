@@ -1,0 +1,59 @@
+
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="featured-section padding-top-100 padding-bottom-100">
+    <div class="container padding-top-50">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <div class="swin-sc swin-sc-title">
+            <p class="top-title"><span>Our Special</span></p>
+            <h3 class="title">Amazing Featured</h3>
+          </div> -->
+          <div class="row ">
+            <div class="col-md-4 col-sm-6  col-12">
+              <div class="swin-sc sc-featured-box item wow fadeInUp"><img src="{% static 'web/images/featured-box-bg-1.jpg' %}" alt="fooday" class="box-bg">
+                <div class="box-inner">
+                  <!-- <h4 class="box-title">FRESH MENU</h4> -->
+                  <div class="box-content">Lorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</div>
+                  <!-- <div class="btn-wrap text-center"><a href="javascript:void(0)" class="btn swin-btn"><span>Read More</span></a></div> -->
+                  <div class="showcase"><img src="{% static 'web/images/feature-box-bg.jpg' %}" alt="" class="img-responsive img-showcase">
+                    <!-- <div class="title-showcase">FRESH MENU</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div data-wow-delay="0.5s" class="swin-sc sc-featured-box item wow fadeInUp"><img src="{% static 'web/images/featured-box-bg-1.jpg' %}" alt="fooday" class="box-bg">
+                <div class="box-inner">
+                  <!-- <h4 class="box-title">VARIOUS DRINK</h4> -->
+                  <div class="box-content">Lorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</div>
+                  <!-- <div class="btn-wrap text-center"><a href="javascript:void(0)" class="btn swin-btn"><span>Read More</span></a></div> -->
+                  <div class="showcase"><img src="{% static 'web/images/feature-box-bg-2.jpg' %}" alt="" class="img-responsive img-showcase">
+                    <!-- <div class="title-showcase">VARIOUS DRINK</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div data-wow-delay="1s" class="swin-sc sc-featured-box item wow fadeInUp"><img src="{% static 'web/images/featured-box-bg-1.jpg' %}" alt="fooday" class="box-bg">
+                <div class="box-inner">
+                  <!-- <h4 class="box-title">EXCLUSIVE DISHES</h4> -->
+                  <div class="box-content">Lorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</div>
+                  <!-- <div class="btn-wrap text-center"><a href="javascript:void(0)" class="btn swin-btn"><span>Read More</span></a></div> -->
+                  <div class="showcase"><img src="{% static 'web/images/feature-box-bg-3.jpg' %}" alt="" class="img-responsive img-showcase">
+                    <!-- <div class="title-showcase">EXCLUSIVE DISHES</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
