@@ -20,6 +20,7 @@ def index(request):
     except:
         pass
     context = {
+        "is_index" : True,
         'banner': banner,
         'categories': categories,
         'products': products,
@@ -39,6 +40,7 @@ def menu(request):
     except:
         pass
     context = {
+        "is_about" : True,
         'categories': categories,
         'products': products,
         'cartLength': cartLength,
@@ -50,6 +52,7 @@ def menu(request):
 def gallery(request):
     galleries = Gallery.objects.all()
     context = {
+        "is_gallery" : True,
         'galleries': galleries
     }
     return render(request, 'web/gallery.html', context)
@@ -112,6 +115,7 @@ def contact(request):
         context = {
             "is_contact": True,
             "forms": forms,
+
         }
         return render(request, 'web/contact.html', context)
 
@@ -281,10 +285,24 @@ def shopDetails(request,):
     }
     return render(request, 'web/shop-details.html', context)
 
+def menudemo(request,):
+    context = {
+        
+    }
+    return render(request, 'web/menu-demo.html', context)
 
+def productshow(request):
+    a = []
+    categoryId  = request.POST['category_id']
+    obj = Product.objects.filter(category_id = categoryId)
+    for i in obj:
 
+        data = {
+            'image':i.image.url,
+            'title':i.title,
+            'cal':i.cal,
+            'price':i.price
+        }
+        a.append(data)
 
-
-
-
-
+    return JsonResponse({'data':a})

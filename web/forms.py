@@ -8,9 +8,8 @@ class ContactForm(forms.ModelForm):
         model=Contact
         fields='__all__'
         widgets={
-            'firstname':TextInput(attrs={'placeholder':"الاسم الأول",'class':"required form-control",'name':"firstname",}),
-            'lastname':TextInput(attrs={'placeholder':"الكنية",'class':"required form-control" ,'name':"lastname"}),
-            'email':EmailInput(attrs={'placeholder':"بريد الالكتروني",'class':"required form-control" ,'name':"email"}),
-            'phone':TextInput(attrs={'placeholder':"رقم التليفون",'class':"required form-control" ,'name':"phone"}),
-            'feedback':Textarea(attrs={'placeholder':"ردود الفعل",'class':"required form-control" ,'name':"feedback"}),
+            'username':TextInput(attrs={'placeholder':"الاسم",'class':"required form-control",}),
+            'email':EmailInput(attrs={'placeholder':"بريد الالكتروني",'class':"required form-control",}),
+            'phone':TextInput(attrs={'placeholder':"رقم التليفون",'class':"required form-control" ,}),
+            'message':Textarea(attrs={'placeholder':"رسالة",'class':"required form-control"}),
          }

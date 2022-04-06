@@ -249,16 +249,20 @@
               <section>
                 <div class="container">
                   <div class="row">
+                    {% for offer in offers %}
                     <div class="col-md-6 col-xs-12">
                       <div class="swin-sc swin-sc-banner item">
-                        <div class="banner-featured-img"><img src="{% static 'web/images/banner-img-1.jpg' %}" alt="fooday" class="img img-responsive">
+                        <div class="banner-featured-img"><img src="{{offer.image.crop.555x263}}" alt="fooday" class="img img-responsive">
                           <div class="banner-content">
-                            <div class="banner-title">HONEY CAKE</div>
-                            <div class="banner-subtitle">NEW DISHES THIS WEEK</div><a href="#" class="swin-btn"><span>Read More</span></a>
+                            <div class="banner-title">{{offer.title}}</div>
+                            <div class="banner-subtitle">{{offer.description}}</div><a href="{% url 'web:cart' %}" class="swin-btn"><span> Order Now</span></a>
                           </div>
                         </div>
                       </div>
                     </div>
+                    {% endfor %}
+
+                    {% comment %}
                     <div class="col-md-6 col-xs-12">
                       <div class="swin-sc swin-sc-banner right item">
                         <div class="banner-featured-img"><img src="{% static 'web/images/banner-img-2.jpg' %}" alt="fooday" class="img img-responsive">
@@ -269,6 +273,7 @@
                         </div>
                       </div>
                     </div>
+                    {% endcomment %}
                   </div>
                 </div>
               </section>

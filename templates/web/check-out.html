@@ -1,0 +1,36 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="page-container">
+    <div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;"
+        data-top-bottom="background-position: 50% -50px;" class="page-title page-product">
+        <div class="container">
+            <div class="title-wrapper">
+                <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(-5px);"
+                    data--50-top="transform: translateY(-15px);opacity:0.8;"
+                    data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-title"
+                    class="title">Product Cart</div>
+                <div data-top="opacity:1;" data--120-top="opacity:0;" data-anchor-target=".page-title" class="divider">
+                    <span class="line-before"></span><span class="dot"></span><span class="line-after"></span></div>
+                <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);"
+                    data--50-top="transform: translateY(15px);opacity:0.8;"
+                    data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-title"
+                    class="subtitle">We hope you will like this product and give us 5 star rating</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="booking-form-2 ">
+                <label for="">Send to Whatsapp</label>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

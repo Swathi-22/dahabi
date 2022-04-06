@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 
 class Banner(models.Model):
     title=models.CharField(max_length=225)
-    heading=models.CharField(max_length=200)
+    heading=models.CharField(max_length=200)        
     image = VersatileImageField('Image',upload_to='index/',ppoi_field='ppoi')
     ppoi = PPOIField('Image PPOI')
 
@@ -53,6 +53,7 @@ class Product(models.Model):
 
 
 class Gallery(models.Model):
+    description=models.TextField()
     image = VersatileImageField('Image',upload_to='gallery/',ppoi_field='ppoi')
     ppoi = PPOIField('Image PPOI')
 
@@ -64,11 +65,10 @@ class Gallery(models.Model):
 
 
 class Contact(models.Model):
-    firstname=models.CharField(max_length=100)
-    lastname=models.CharField(max_length=100)
+    username=models.CharField(max_length=100)
     email=models.EmailField()
     phone=models.CharField(max_length=50)
-    feedback=HTMLField(blank=True, null=True)
+    message=HTMLField(blank=True, null=True)
 
     def __str__(self):
         return self.firstname

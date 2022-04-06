@@ -26,7 +26,7 @@ class GalleryAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ( 'firstname',)
+    list_display = ( 'username',)
 
 
 @admin.register(Offer)

@@ -37,7 +37,7 @@
           <div class="container">
             <div class="open-offcanvas">&#9776;</div>
             <div class="utility-nav">
-              <div class="dropdown dropdown-full-mobile "><a href="{% url 'web:cart' %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="search-bar" id="cartCount"><i class="fa fa-shopping-bag" style="color: black;">
+              <div class="dropdown dropdown-full-mobile "><a href="{% url 'web:cart' %}"  role="button" class="search-bar" ><i class="fa fa-shopping-bag" style="color: black;">
                 <span id="cartCount" class="cart-count"> {% if cartLength  %}{{cartLength}}{% else %} 0 {% endif %}</span>
               </i></a>
                 <!-- <div class="dropdown-menu">
@@ -72,12 +72,12 @@
                 </div>
               </div> -->
             </div>
-            <div class="header-logo"><a href="{% url 'web:index' %}" class="logo"><img src="{% static 'web/images/logo.png' %}" alt="fooday" class="logo-img"></a></div>
+            <div class="header-logo"><a href="{% url 'web:index' %}" class="logo"><img src="{% static 'web/images/logo 1.svg' %}" style="width: 35%;" alt="fooday" class="logo-img"></a></div>
             <nav id="main-nav-offcanvas" class="main-nav-wrapper">
               <div class="close-offcanvas-wrapper"><span class="close-offcanvas">x</span></div>
               <div class="main-nav">
                 <ul id="main-nav" class="nav nav-pills">
-                  <li class="dropdown current-menu-item"><a href="{% url 'web:index' %}" >Home</a>
+                  <li class="dropdown {% if is_index %} current-menu-item {% endif %}"><a href="{% url 'web:index' %}" >Home</a>
                     <!-- <i class="fa fa-angle-down btn-open-dropdown"></i> -->
                     <!-- <ul class="dropdown-menu">
                       <li><a href="index.html">Home 1</a></li>
@@ -92,7 +92,7 @@
                   </li>
                   <!-- <li><a href="about.html">About</a></li> -->
                   <!-- <li><a href="reservation.html">Reservation</a></li> -->
-                  <li class="dropdown"><a href="{% url 'web:menu' %}" class="dropdown-toggle">
+                  <li class="dropdown {% if is_about %} current-menu-item {% endif %}"><a href="{% url 'web:menu' %}" class="dropdown-toggle">
                        
                       Menu</a>
                       <!-- <i class="fa fa-angle-down btn-open-dropdown"></i> -->
@@ -114,10 +114,10 @@
                       <li><a href="page-404.html">404 Page</a></li>
                     </ul>
                   </li> -->
-                  <li class="dropdown"><a href="{% url 'web:gallery' %}" class="dropdown-toggle">
+                  <li class="dropdown {% if is_gallery %} current-menu-item {% endif %}"><a href="{% url 'web:gallery' %}" class="dropdown-toggle">
                        
                     Gallery</a></li>
-                  <li><a href="{% url 'web:contact' %}">Contact</a></li>
+                  <li class="dropdown {% if is_contact %} current-menu-item {% endif %}"><a href="{% url 'web:contact' %}">Contact</a></li>
                 </ul>
               </div>
             </nav>

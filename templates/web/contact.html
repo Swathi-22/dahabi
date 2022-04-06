@@ -8,7 +8,7 @@
               <div class="title-wrapper">
                 <div data-top="transform: translateY(0px);opacity:1;" data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-title" class="title">Contact Us</div>
                 <div data-top="opacity:1;" data--120-top="opacity:0;" data-anchor-target=".page-title" class="divider"><span class="line-before"></span><span class="dot"></span><span class="line-after"></span></div>
-                <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);" data--50-top="transform: translateY(15px);opacity:0.8;" data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-title" class="subtitle">Let us know if you have any concern about our menu, service or other information you want to have</div>
+                <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);" data--50-top="transform: translateY(15px);opacity:0.8;" data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-title" class="subtitle">Feel free to connect to fulfil nourish your eating habits</div>
               </div>
             </div>
           </div>
@@ -22,17 +22,20 @@
                     </div>
                     <div class="reservation-form style-02">
                       <div class="swin-sc swin-sc-contact-form light mtl style-full">
-                        <form>
+                        <form id="form" method="POST" class="ajax reload">
+                          {% csrf_token %}
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input type="text" placeholder="Username" class="form-control">
+                              <!-- <input type="text" placeholder="Username" class="form-control"> -->
+                              {{forms.username}}
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                              <input type="text" placeholder="Email" class="form-control">
+                              <!-- <input type="text" placeholder="Email" class="form-control"> -->
+                              {{forms.email}}
                             </div>
                           </div>
                           <div class="form-group">
@@ -40,14 +43,19 @@
                               <div class="input-group-addon">
                                 <div class="fa fa-phone"></div>
                               </div>
-                              <input type="text" placeholder="Phone" class="form-control">
+                              <!-- <input type="text" placeholder="Phone" class="form-control"> -->
+                              {{forms.phone}}
+                              
                             </div>
                           </div>
                           <div class="form-group">
-                            <textarea placeholder="Message" class="form-control"></textarea>
+                            <!-- <textarea placeholder="Message" class="form-control"></textarea> -->
+                            {{forms.message}}
+
                           </div>
                           <div class="form-group">
-                            <div class="swin-btn-wrap"><a href="#" class="swin-btn center form-submit"><span>Send</span></a></div>
+                            <button id="submit" class="swin-btn" type="submit">إرسال<span></span></button>
+                            <!-- <div class="swin-btn-wrap"><a href="#" class="swin-btn center form-submit"><span>Send</span></a></div> -->
                           </div>
                         </form>
                       </div>

@@ -28,18 +28,26 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="cart_item">
-                        <td class="product-remove"><a href="#" aria-label="Remove this item" data-product_id="1061" data-product_sku="" class="remove">×</a></td>
-                        <td class="product-thumbnail"><a href="#"><img width="150" height="100" src="{% static 'web/images/product/product-2l.jpg' %}" alt="" class="img-responsive"></a></td>
-                        <td data-title="Product" class="product-name"><a href="#">Chocolate Fudge Ripple</a></td>
-                        <td data-title="Price" class="product-price"><span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>25.0</span></td>
+                      {% for cart_item in cart_data %}
+                      <tr class="cart_item" id="product-box{{cart_item.id}}">
+                        <td class="product-remove"><a  aria-label="Remove this item" onclick="deleteProduct('{{cart_item.id}}',this)" data-product_id="1061" data-product_sku="" class="remove">×</a></td>
+                        <td class="product-thumbnail"><a href="#"><img width="150" height="100" src="{{cart_item.image}}" alt="" class="img-responsive"></a></td>
+                        <td data-title="Product" class="product-name"><a href="#">{{cart_item.name}}</a></td>
+                        <td data-title="Price" class="product-price"><span class="product-Price-amount amount"><span class="product-Price-currencySymbol">SAR</span>{{cart_item.price}}</span></td>
                         <td data-title="Quantity" class="product-quantity">
                           <div class="quantity">
-                            <input type="number" step="1" min="0" max="" name="cart[a89cf525e1d9f04d16ce31165e139a4b][qty]" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" class="form-control input-qty">
+                            {% csrf_token %}
+                            <input type="number"id="quantityId{{cart_item.id}}" onchange="updateQuantity('{{cart_item.id}}',this)" value="{{cart_item.quantity}}">
+
+                            <!-- <input type="number" step="1" min="0" max="" name="cart[a89cf525e1d9f04d16ce31165e139a4b][qty]" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" class="form-control input-qty"> -->
                           </div>
                         </td>
-                        <td data-title="Total" class="product-subtotal"><span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>25.0</span></td>
+                        <td data-title="Total" class="product-subtotal"><span class="product-Price-amount amount" id="subTotalPrice{{cart_item.id}}"><span class="product-Price-currencySymbol">SAR</span>{{cart_item.sub_total}}</span></td>
                       </tr>
+                      {% endfor %}
+
+
+                      {% comment %}
                       <tr class="cart_item">
                         <td class="product-remove"><a href="#" aria-label="Remove this item" data-product_id="1070" data-product_sku="" class="remove">×</a></td>
                         <td class="product-thumbnail"><a href="#"><img width="150" height="100" src="{% static 'web/images/product/product-2n.jpg' %}" alt="" class="img-responsive"></a></td>
@@ -52,42 +60,119 @@
                         </td>
                         <td data-title="Total" class="product-subtotal"><span class="product-Price-amount amount"><span class="product-Price-currencySymbol">$</span>14.0</span></td>
                       </tr>
-                      <tr>
-                        <td colspan="6" class="product-coupon">
-                          <div class="actions">
-                            <div class="coupon">
-                              <input type="text" name="coupon_code" value="" placeholder="Coupon code" class="form-control input-coupon">
-                              <input type="button" name="apply_coupon" value="Apply coupon" class="swin-btn">
-                            </div>
-                            <input type="button" name="update_cart" value="Update cart" class="swin-btn f-right">
-                          </div>
-                        </td>
-                      </tr>
+                      {% endcomment %}
+
+
+
                     </tbody>
                   </table>
                 </form>
                 <div class="cart-total">
+                  {% if total %}
                   <div class="row">
                     <div class="col-md-6 col-md-offset-6">
                       <h2 class="cart-total-title">Cart Totals</h2>
                       <table cellspacing="0" class="shop_table">
-                        <tbody>
-                          <tr class="cart-subtotal">
+                        <tbody> 
+                          <!-- <tr class="cart-subtotal">
                             <th>Subtotal</th>
                             <td data-title="Subtotal"><span class="product-amount amount"><span class="product-currencySymbol">$</span>39.0</span></td>
-                          </tr>
+                          </tr> -->
                           <tr class="order-total">
                             <th>Total</th>
-                            <td data-title="Total"><strong><span class="product-amount amount"><span class="product-currencySymbol">$</span>39.0</span></strong></td>
+                            <td data-title="Total"><strong><span class="product-amount amount"><span class="product-currencySymbol" id="subTotal"> SAR :{{total}}</span> </span></strong></td>
                           </tr>
                         </tbody>
-                      </table><a href="#" class="swin-btn"><span>Process To Checkout</span></a>
+                        <input type="number" value="{{total}}" id="subTotalInputId" hidden>
+
+                      </table>
+                      <button class="swin-btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Process To Checkout</button>
+                      
                     </div>
                   </div>
+                  {% endif %}
                 </div>
               </section>
             </div>
           </div>
         </div>
+ 
+{% comment %}
+      <div class="col-lg-12 col-md-12 col-sm-12 " id="order-form-box">
+        <div class="reservation-form style-02">
+          <div class="swin-sc swin-sc-contact-form light mtl style-full">
+            <form id="form" method="POST" class="ajax reload">
+              {% csrf_token %}
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" id="name" placeholder="Your Name" class="form-control">
+                  
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" placeholder="Expected Time"  id="time" class="form-control">
+                  
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button id="b_submit " type="submit" class="swin-btn" type="submit">إرسال</button>
+                <div id="b-form-messages" class="alert" role="alert"></div>
+
+            
+                <!-- <div class="swin-btn-wrap"><a href="#" class="swin-btn center form-submit"><span>Send</span></a></div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+{% endcomment %}
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="whatsapp-form" method="POST">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" required id="name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Expected Time:</label>
+            <input type="text" class="form-control" required id="time">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="b_submit" type="submit" class="btn btn-success">Send</button>
+        <div id="b-form-messages" class="alert" role="alert"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+     
+   {% endblock %}
+
+   {% block javascript %}
+   <script>
+       $("#order-form-box").hide()
+   </script>
+   <script>
+       function addrForm(){
+           $("#order-form-box").show()
+   
+       } 
+   </script>
    {% endblock %}
