@@ -1,4 +1,6 @@
 from importlib.resources import contents
+from multiprocessing import context
+import re
 from django.shortcuts import render, get_object_or_404
 from web.models import Category, Offer, Product, Banner, Gallery,Vat
 from .forms import ContactForm
@@ -143,8 +145,10 @@ def cart(request):
         subTotal = sum(map(operator.itemgetter('sub_total'), data))
         
         if request.method == "POST":
+            print("Sucs")
             name = request.POST.get('name')
             address = request.POST.get('time')
+            
             return HttpResponseRedirect('/check-out/'+name+'/'+address+'/') 
     except Exception as e:
         pass
@@ -266,31 +270,6 @@ def update_cart(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-def shopDetails(request,):
-    
-    context = {
-        
-    }
-    return render(request, 'web/shop-details.html', context)
-
-def menudemo(request,):
-    context = {
-        
-    }
-    return render(request, 'web/menu-demo.html', context)
-
 def productshow(request):
     a = []
     categoryId  = request.POST['category_id']
@@ -306,3 +285,25 @@ def productshow(request):
         a.append(data)
 
     return JsonResponse({'data':a})
+
+
+
+
+def menuzz(request):
+    vat =Vat.objects.all()[:1]
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    cartLength = ''
+    try:
+        cartLength = len(request.session['cartdata'])
+    except:
+        pass
+    context = {
+        "is_about" : True,
+        'categories': categories,
+        'products': products,
+        'cartLength': cartLength,
+        'vat' : vat,
+    }
+    return render(request,'web/menuzz.html',context)
+

@@ -10,13 +10,9 @@ urlpatterns = [
     path('gallery/', views.gallery,name='gallery'),
     path('contact/', views.contact,name='contact'),
 
-    path('cart/', views.cart,name='cart'),
-
     path('check-out/<str:name>/<str:address>/', views.shopDetails,name='shopDetails'),
 
-
-
-
+    path('cart/', views.cart,name='cart'),
 
     #ajax calling for cart
     path('add-cart/', views.add_cart,name='add_cart'),
@@ -25,8 +21,11 @@ urlpatterns = [
     path('delete-cart/',views.cart_delete, name='decrement'),
 
 
+
  
     path('product-show/',views.productshow, name='productshow'),
+
+
 
 
 

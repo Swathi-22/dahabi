@@ -24,10 +24,18 @@
 
 
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center" style="direction: ltr;">
             <div class="booking-form-2 ">
-                <label for="">Send to Whatsapp</label>
-
+                <div class="whatsapp-box">
+                    <h3 class="h3-send"> Send to Whatsapp</h3>
+                    <form  method="POST" id="whatsapp-form" class="form-horizontal">
+                        <a href="{{link}}" class="wb-btn"> 
+                            <img src="{% static 'web/images/whatsapp.png' %}" alt="" class="whatsapp-icn ">
+                               <label for="" class="send-text">Send</label>  
+                        </a>
+                    </form>
+                </div>
+               
             </div>
         </div>
     </div>
